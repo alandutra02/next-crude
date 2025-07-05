@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image";
 import Corpo from "./Corpo";
 import Cliente from "./core/Cliente";
@@ -10,6 +11,10 @@ export default function Home() {
     new Cliente('Carlos', 23, '3'),
     new Cliente('Pedro', 54, '4')
   ]
+
+  function clienteSelecionado(cliente: Cliente) {
+    console.log(cliente.nome)
+  }
   return (
     <div className={`
         flex h-screen justify-center items-center
@@ -18,7 +23,8 @@ export default function Home() {
     `}>
         
         <Corpo titulo="Cadastro Simples">
-          <Tabela clientes={clientes}></Tabela>
+          <Tabela clientes={clientes}
+          clienteSelecionado={clienteSelecionado}></Tabela>
         </Corpo>
     </div>
   )
