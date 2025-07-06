@@ -1,12 +1,14 @@
 import Cliente from "./core/Cliente"
 import { IconeEdicao, IconeLixo } from "./Icones"
+
 interface Tabelaprops {
-    clientes: Cliente[],
+    clientes: Cliente[], // aqui é repassado todos os clientes em forma de objeto devido ao Cliente[]. Se
     clienteSelecionado?: (cliente: Cliente) => void
     clienteExcluido?: (cliente: Cliente) => void
 }
-export default function Tabela(props: Tabelaprops) {
 
+export default function Tabela(props: Tabelaprops) {
+    //console.log(props.clientes) // aqui é um exemplo de saida do array de objetos para o objeto cliente de posição [1] do array
     const exibirAcoes = props.clienteExcluido || props.clienteSelecionado
 
     function renderizarCabecalho() {
@@ -19,6 +21,7 @@ export default function Tabela(props: Tabelaprops) {
                 </tr>
         )
     }
+
     function renderizarDados() {
         return props.clientes?.map((cliente, i) => { 
             return (
@@ -70,7 +73,6 @@ export default function Tabela(props: Tabelaprops) {
             <tbody>
                 {renderizarDados()}
             </tbody>
-        </table> 
-       
+        </table>    
     )
 }
