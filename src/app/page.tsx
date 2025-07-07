@@ -5,6 +5,7 @@ import Cliente from "./core/Cliente";
 import Tabela from "./Tabela";
 import Botao from "./Botao";
 import Formulario from "./Formulario";
+import { useState } from "react";
 
 export default function Home() {
   const clientes = [
@@ -21,6 +22,8 @@ export default function Home() {
   function clienteExcluido(cliente: Cliente) {
     console.log(cliente.nome)
   }
+
+  const [visivel, setVisivel] = useState<'tabela' | 'form'>('tabela')
 
   return (
     <div className={`
