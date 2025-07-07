@@ -4,6 +4,8 @@ import Cliente from './core/Cliente'
 import { useState } from 'react'
 interface FormularioProps {
     cliente: Cliente
+    clienteMudou?: (cliente: Cliente) => void
+    cancelado?: () => void
 }
 export default function Formulario(props: FormularioProps) {
     const id = props.cliente?.id
@@ -35,10 +37,11 @@ export default function Formulario(props: FormularioProps) {
             </Entrada>
             <div className='flex justify-end mt-7'>
                 <Botao className='bg-gradient-to-r from-blue-400 to-blue-700
-                     hover:from-blue-500 hover:to-blue-800 mr-2'>
+                     hover:from-blue-500 hover:to-blue-800 mr-2'
+                    onClick={() => props.clienteMudou?.(new Cliente(nome, +idade, id))}>
                     {id ? 'Alterar' : 'Salvar'}
                 </Botao>
-                <Botao className='bg-gradient-to-r from-gray-400 to-gray-700
+                <Botao  onClick={props.cancelado} className='bg-gradient-to-r from-gray-400 to-gray-700
                      hover:from-gray-500 hover:to-gray-800'>
                     Cancelar
                 </Botao>
