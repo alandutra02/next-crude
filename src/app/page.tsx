@@ -1,6 +1,5 @@
 'use client'
 import { useEffect, useState } from "react"
-import Image from "next/image"
 import Corpo from "./Corpo"
 import Cliente from "./core/Cliente"
 import Tabela from "./Tabela"

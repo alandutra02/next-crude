@@ -1,4 +1,3 @@
-// Corpo.tsx
 import Titulo from "./Titulo";
 
 interface CorpoProps {
