@@ -21,12 +21,12 @@ export default function useClientes() {
     async function obterTodos() {
       const clientes = await repo.obterTodos()
       setClientes(clientes)
-      exibirTabela
+      exibirTabela()
     }
     
     function selecionarCliente(cliente: Cliente) {
       setCliente(cliente)
-      exibirFormulario
+      exibirFormulario()
     }
     
     async function excluirCliente(cliente: Cliente) {
@@ -36,7 +36,7 @@ export default function useClientes() {
     
     function novoCliente() {
       setCliente(Cliente.vazio())
-      exibirFormulario
+      exibirFormulario()
     }
     
     async function salvarCliente(cliente: Cliente) {
