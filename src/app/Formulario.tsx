@@ -2,11 +2,13 @@ import Botao from './Botao'
 import Entrada from './Entrada'
 import Cliente from './core/Cliente'
 import { useState } from 'react'
+
 interface FormularioProps {
     cliente: Cliente
     clienteMudou?: (cliente: Cliente) => void
     cancelado?: () => void
 }
+
 export default function Formulario(props: FormularioProps) {
     const id = props.cliente?.id
     const [nome, setNome] = useState(props.cliente?.nome ?? '')
